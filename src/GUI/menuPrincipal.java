@@ -28,6 +28,7 @@ public class menuPrincipal extends javax.swing.JFrame {
     static public LinkedList<LinkedList<String>> contenido = new LinkedList<>();
     static public int idiomaElegido = 0;
     static public List<String> titulos=new ArrayList<>();
+    static public List<String> idiomas=new ArrayList<>();
     
 
 
@@ -56,6 +57,7 @@ public class menuPrincipal extends javax.swing.JFrame {
         jTable2.setModel(tableModel);
         
         obtenerTitulos();
+
         
     }
 
@@ -236,6 +238,11 @@ public class menuPrincipal extends javax.swing.JFrame {
         jMenu16.add(jRadioButtonMenuItem6);
 
         jRadioButtonMenuItem7.setText(contenido.get(idiomaElegido).get(14));
+        jRadioButtonMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem7ActionPerformed(evt);
+            }
+        });
         jMenu16.add(jRadioButtonMenuItem7);
 
         jMenuBar2.add(jMenu16);
@@ -286,6 +293,12 @@ public class menuPrincipal extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jRadioButtonMenuItem4ActionPerformed
 
+    private void jRadioButtonMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem7ActionPerformed
+        // TODO add your handling code here:
+        new seleccionarIdioma().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jRadioButtonMenuItem7ActionPerformed
+
     
     
     
@@ -319,6 +332,14 @@ public class menuPrincipal extends javax.swing.JFrame {
         }
         
     }
+    public static void obtenerIdiomas(){
+       for(int i=0;i<contenido.size();i++){
+            idiomas.add(i,contenido.get(i).get(17));
+        }
+        
+    }
+    
+    
      
 
     /**
@@ -330,7 +351,7 @@ public class menuPrincipal extends javax.swing.JFrame {
         leerFicheroConfig l = new leerFicheroConfig();
         contenido = l.contenidos();
         
-        
+                obtenerIdiomas();
         
         
 

@@ -1,4 +1,4 @@
-16
+18
 es
 Insertar
 Borrar
@@ -15,6 +15,8 @@ Opciones
 Ajustes
 Seleccionar idioma
 Cancelar
+Seleccione un idioma
+Castellano
 en
 Add
 Delete
@@ -31,3 +33,5 @@ Options
 Settings
 Choose language
 Cancel
+Choose a language
+English
