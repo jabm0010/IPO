@@ -1,0 +1,33 @@
+16
+es
+Insertar
+Borrar
+Modificar
+Titulo
+Fecha de lanzamiento
+Autor
+Datos
+Importar
+Exportar
+Introduzca el nombre del fichero
+Confirmar
+Opciones
+Ajustes
+Seleccionar idioma
+Cancelar
+en
+Add
+Delete
+Modify
+Title
+Release date
+Writer
+Data
+Import
+Export
+Introduce the name of the file
+Confirm
+Options
+Settings
+Choose language
+Cancel
