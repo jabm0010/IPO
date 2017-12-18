@@ -27,10 +27,8 @@ public class menuPrincipal extends javax.swing.JFrame {
     //Estructura de datos donde se almacena la información relativa a los idiomas
     static public LinkedList<LinkedList<String>> contenido = new LinkedList<>();
     static public int idiomaElegido = 0;
-    static public List<String> titulos=new ArrayList<>();
-    static public List<String> idiomas=new ArrayList<>();
-    
-
+    static public List<String> titulos = new ArrayList<>();
+    static public List<String> idiomas = new ArrayList<>();
 
     //Estructura de datos donde se almacena la informacion del fichero de datos
     static public List<List<String>> datos = new ArrayList<>();
@@ -40,25 +38,23 @@ public class menuPrincipal extends javax.swing.JFrame {
      */
     public menuPrincipal() {
         initComponents();
-         String col[] = {contenido.get(idiomaElegido).get(4),contenido.get(idiomaElegido).get(5),
-        contenido.get(idiomaElegido).get(6)};
-         DefaultTableModel tableModel = new DefaultTableModel(col, 0);
-        
+        String col[] = {contenido.get(idiomaElegido).get(4), contenido.get(idiomaElegido).get(5),
+            contenido.get(idiomaElegido).get(6)};
+        DefaultTableModel tableModel = new DefaultTableModel(col, 0);
+
         for (int i = 0; i < datos.size(); i++) {
 
             String[] datosTemp = {datos.get(i).get(0), datos.get(i).get(1), datos.get(i).get(2)};
             tableModel.addRow(datosTemp);
-            
-            
-            
 
         }
-        
-        jTable2.setModel(tableModel);
-        
-        obtenerTitulos();
 
-        
+        jTable2.setModel(tableModel);
+
+        obtenerTitulos();
+        comprobarTitulos();
+
+
     }
 
     /**
@@ -271,14 +267,19 @@ public class menuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         new insertar().setVisible(true);
         this.dispose();
-        
-        
+
+
     }//GEN-LAST:event_jRadioButtonMenuItem2ActionPerformed
 
     private void jRadioButtonMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem3ActionPerformed
         // TODO add your handling code here:
+        if(datos.size()!=0){
         new eliminar().setVisible(true);
         this.dispose();
+        }else{
+            new error().setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_jRadioButtonMenuItem3ActionPerformed
 
     private void jRadioButtonMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem5ActionPerformed
@@ -289,58 +290,76 @@ public class menuPrincipal extends javax.swing.JFrame {
 
     private void jRadioButtonMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem4ActionPerformed
         // TODO add your handling code here:
+        if(datos.size()!=0){
         new modificar().setVisible(true);
         this.dispose();
+        }else{
+            new error().setVisible(true);
+            this.dispose();
     }//GEN-LAST:event_jRadioButtonMenuItem4ActionPerformed
-
+    }
     private void jRadioButtonMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem7ActionPerformed
         // TODO add your handling code here:
         new seleccionarIdioma().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jRadioButtonMenuItem7ActionPerformed
 
-    
-    
-    
-    static public void insertarDatos(String a,String b, String c){
-        LinkedList<String> l=new LinkedList<>();
+    static public void insertarDatos(String a, String b, String c) {
+        LinkedList<String> l = new LinkedList<>();
         l.addLast(a);
         l.addLast(b);
         l.addLast(c);
-       datos.add(l);
-        
+        datos.add(l);
+
     }
- 
-    
-     static public void cargarDatos(String ruta) throws IOException {
+
+    static public void modificarDatos(String a, String b, String c, int indice) {
+        datos.get(indice).set(0, a);
+        datos.get(indice).set(1, b);
+        datos.get(indice).set(2, c);
+
+    }
+
+    static public void cargarDatos(String ruta) throws IOException {
 
         leerFicheroDatos lFD = new leerFicheroDatos(ruta);
         datos = lFD.devolverContenido();
 
-        
-
-        
-
-
     }
-     
-    public void obtenerTitulos(){
-        
-        
-        for(int i=0;i<datos.size();i++){
-            titulos.add(i,datos.get(i).get(0));
+
+    public void obtenerTitulos() {
+
+        for (int i = 0; i < datos.size(); i++) {
+            titulos.add(i, datos.get(i).get(0));
         }
-        
+
     }
-    public static void obtenerIdiomas(){
-       for(int i=0;i<contenido.size();i++){
-            idiomas.add(i,contenido.get(i).get(17));
+    
+    public void comprobarTitulos(){
+        
+        
+     
+   
+        
+        
+        
+        for(int i=0;i<titulos.size();i++){
+            for(int j=0;j<titulos.size();j++){
+                if(titulos.get(i)==titulos.get(j)){
+                    titulos.remove(j);
+                }
+            }
         }
         
     }
     
-    
-     
+
+    public static void obtenerIdiomas() {
+        for (int i = 0; i < contenido.size(); i++) {
+            idiomas.add(i, contenido.get(i).get(17));
+        }
+
+    }
 
     /**
      * @param args the command line arguments
@@ -350,10 +369,8 @@ public class menuPrincipal extends javax.swing.JFrame {
 
         leerFicheroConfig l = new leerFicheroConfig();
         contenido = l.contenidos();
-        
-                obtenerIdiomas();
-        
-        
+
+        obtenerIdiomas();
 
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -383,10 +400,9 @@ public class menuPrincipal extends javax.swing.JFrame {
             public void run() {
                 new menuPrincipal().setVisible(true);
             }
-            
+
         });
-        
-       
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

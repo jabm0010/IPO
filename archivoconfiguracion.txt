@@ -1,4 +1,4 @@
-18
+19
 es
 Insertar
 Borrar
@@ -17,6 +17,7 @@ Seleccionar idioma
 Cancelar
 Seleccione un idioma
 Castellano
+Error! No hay datos todavia
 en
 Add
 Delete
@@ -35,3 +36,4 @@ Choose language
 Cancel
 Choose a language
 English
+Error! No data yet

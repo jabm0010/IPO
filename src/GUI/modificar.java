@@ -41,6 +41,7 @@ public class modificar extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,6 +74,13 @@ public class modificar extends javax.swing.JFrame {
 
         jTextField3.setText(menuPrincipal.datos.get(jComboBox1.getSelectedIndex()).get(2));
 
+        jButton2.setText(menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(15));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -81,6 +89,10 @@ public class modificar extends javax.swing.JFrame {
                 .addGap(115, 115, 115)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(138, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(90, 90, 90)
@@ -111,7 +123,9 @@ public class modificar extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(256, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 222, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(67, 67, 67)
@@ -143,19 +157,19 @@ public class modificar extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
-        String titulo=jTextField1.getText();
+        String titulo = jTextField1.getText();
         System.out.println(titulo);
-        String fechaLanzamient=jTextField2.getText();
-        String autor=jTextField3.getText();
+        String fechaLanzamient = jTextField2.getText();
+        String autor = jTextField3.getText();
         //
         //        LinkedList<String> l=new LinkedList<>();
         //        l.addLast(titulo);
         //        l.addLast(fechaLanzamient);
         //        l.addLast(autor);
 
-        menuPrincipal.insertarDatos(titulo, fechaLanzamient, autor);
+        menuPrincipal.modificarDatos(titulo, fechaLanzamient, autor, jComboBox1.getSelectedIndex());
 
-        menuPrincipal mp=new menuPrincipal();
+        menuPrincipal mp = new menuPrincipal();
         mp.setVisible(true);
 
         this.dispose();
@@ -164,19 +178,29 @@ public class modificar extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
-        
-         JComboBox cb=(JComboBox)evt.getSource();
-         Object selected =cb.getSelectedItem();
-         for(int i=0;i<menuPrincipal.datos.size();i++){
-         if(selected.toString().equals(menuPrincipal.datos.get(i).get(0))){
-             jTextField1.setText(menuPrincipal.datos.get(i).get(0));
-             jTextField2.setText(menuPrincipal.datos.get(i).get(1));
-             jTextField3.setText(menuPrincipal.datos.get(i).get(2));
-      
 
-         }
+        JComboBox cb = (JComboBox) evt.getSource();
+        Object selected = cb.getSelectedItem();
+        for (int i = 0; i < menuPrincipal.datos.size(); i++) {
+            if (selected.toString().equals(menuPrincipal.datos.get(i).get(0))) {
+                jTextField1.setText(menuPrincipal.datos.get(i).get(0));
+                jTextField2.setText(menuPrincipal.datos.get(i).get(1));
+                jTextField3.setText(menuPrincipal.datos.get(i).get(2));
+
+            }
+        }
     }//GEN-LAST:event_jComboBox1ActionPerformed
-    }
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        new menuPrincipal().setVisible(true);
+        this.dispose();
+        
+        
+
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -214,6 +238,7 @@ public class modificar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
