@@ -1,4 +1,4 @@
-19
+20
 es
 Insertar
 Borrar
@@ -18,6 +18,7 @@ Cancelar
 Seleccione un idioma
 Castellano
 Error! No hay datos todavia
+Exportar
 en
 Add
 Delete
@@ -37,3 +38,4 @@ Cancel
 Choose a language
 English
 Error! No data yet
+Export

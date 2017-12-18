@@ -6,12 +6,15 @@
 package GUI;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 
 /**
  *
  * @author Juan Béjar
  */
 public class seleccionarIdioma extends javax.swing.JFrame {
+
+    int idioma = menuPrincipal.idiomaElegido;
 
     /**
      * Creates new form seleccionarIdioma
@@ -37,8 +40,18 @@ public class seleccionarIdioma extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jComboBox1.setModel(new DefaultComboBoxModel(menuPrincipal.idiomas.toArray()));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("jButton1");
+        jButton1.setText(menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(11));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText(menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(16));
 
@@ -93,8 +106,24 @@ public class seleccionarIdioma extends javax.swing.JFrame {
         // TODO add your handling code here:
         new menuPrincipal().setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+        JComboBox cb = (JComboBox) evt.getSource();
+        idioma = cb.getSelectedIndex();
+
+
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        menuPrincipal.idiomaElegido=idioma;
+        new menuPrincipal().setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

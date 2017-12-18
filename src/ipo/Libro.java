@@ -9,14 +9,14 @@ package ipo;
  *
  * @author Juan Béjar
  */
-public class Pelicula {
+public class Libro {
   private  String nombre;
   private  String fechaLanzamiento;
   private  String director;
   
   
      
-    public Pelicula(String _nombre,String _fechaLanzamiento,String _director){
+    public Libro(String _nombre,String _fechaLanzamiento,String _director){
         nombre=_nombre;
         fechaLanzamiento=_fechaLanzamiento;
         director=_director;

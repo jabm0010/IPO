@@ -13,18 +13,18 @@ import java.util.LinkedList;
  */
 public class gestor {
     
-        LinkedList<Pelicula> peliculasAlmacenadas=new LinkedList<>();
+        LinkedList<Libro> peliculasAlmacenadas=new LinkedList<>();
     
         
      public void insertarPelicula(String _nombre, String _fechaLanzamiento, String _director){
-        Pelicula p=new Pelicula(_nombre,_fechaLanzamiento,_director);
+        Libro p=new Libro(_nombre,_fechaLanzamiento,_director);
         
         peliculasAlmacenadas.addLast(p);
         
     }
      
          
-    public void eliminarPelicula(Pelicula p){
+    public void eliminarPelicula(Libro p){
         peliculasAlmacenadas.remove(p);
     }
      

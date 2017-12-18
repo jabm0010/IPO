@@ -230,6 +230,11 @@ public class menuPrincipal extends javax.swing.JFrame {
         jMenu16.add(jRadioButtonMenuItem5);
 
         jRadioButtonMenuItem6.setText(contenido.get(idiomaElegido).get(9));
+        jRadioButtonMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu16.add(jRadioButtonMenuItem6);
 
         jRadioButtonMenuItem7.setText(contenido.get(idiomaElegido).get(14));
@@ -302,6 +307,13 @@ public class menuPrincipal extends javax.swing.JFrame {
         new seleccionarIdioma().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jRadioButtonMenuItem7ActionPerformed
+
+    private void jRadioButtonMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        new exportarDatos().setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_jRadioButtonMenuItem6ActionPerformed
 
     static public void insertarDatos(String a, String b, String c) {
         LinkedList<String> l = new LinkedList<>();
