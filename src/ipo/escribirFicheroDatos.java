@@ -16,7 +16,7 @@ import GUI.menuPrincipal;
  */
 public class escribirFicheroDatos {
 
-    private static final String FILENAME = "ficheroNuevo.txt";
+    public static String FILENAME;
 
     public escribirFicheroDatos() {
 

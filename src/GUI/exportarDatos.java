@@ -46,7 +46,7 @@ public class exportarDatos extends javax.swing.JFrame {
         jLabel1.setText(menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(10)
         );
 
-        jTextField1.setText("jTextField1");
+        jTextField1.setText("ficheroNuevo.txt");
 
         jButton2.setText(menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(19)
         );
@@ -106,7 +106,8 @@ public class exportarDatos extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         
-        System.out.println("ei");
+        
+        escribirFicheroDatos.FILENAME=jTextField1.getText();
         escribirFicheroDatos ec=new escribirFicheroDatos();
         
         
