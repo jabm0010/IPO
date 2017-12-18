@@ -27,6 +27,7 @@ public class menuPrincipal extends javax.swing.JFrame {
     //Estructura de datos donde se almacena la información relativa a los idiomas
     static public LinkedList<LinkedList<String>> contenido = new LinkedList<>();
     static public int idiomaElegido = 0;
+    static public List<String> titulos=new ArrayList<>();
     
 
 
@@ -53,6 +54,8 @@ public class menuPrincipal extends javax.swing.JFrame {
         }
         
         jTable2.setModel(tableModel);
+        
+        obtenerTitulos();
         
     }
 
@@ -210,6 +213,11 @@ public class menuPrincipal extends javax.swing.JFrame {
         operaciones.add(jRadioButtonMenuItem3);
 
         jRadioButtonMenuItem4.setText(contenido.get(idiomaElegido).get(3));
+        jRadioButtonMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem4ActionPerformed(evt);
+            }
+        });
         operaciones.add(jRadioButtonMenuItem4);
 
         jMenuBar2.add(operaciones);
@@ -272,6 +280,12 @@ public class menuPrincipal extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jRadioButtonMenuItem5ActionPerformed
 
+    private void jRadioButtonMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        new modificar().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jRadioButtonMenuItem4ActionPerformed
+
     
     
     
@@ -296,6 +310,16 @@ public class menuPrincipal extends javax.swing.JFrame {
 
 
     }
+     
+    public void obtenerTitulos(){
+        
+        
+        for(int i=0;i<datos.size();i++){
+            titulos.add(i,datos.get(i).get(0));
+        }
+        
+    }
+     
 
     /**
      * @param args the command line arguments
