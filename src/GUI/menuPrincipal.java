@@ -27,7 +27,7 @@ public class menuPrincipal extends javax.swing.JFrame {
     //Estructura de datos donde se almacena la información relativa a los idiomas
     static public LinkedList<LinkedList<String>> contenido = new LinkedList<>();
     static public int idiomaElegido = 0;
-    static public List<String> titulos = new ArrayList<>();
+
     static public List<String> idiomas = new ArrayList<>();
 
     //Estructura de datos donde se almacena la informacion del fichero de datos
@@ -51,8 +51,7 @@ public class menuPrincipal extends javax.swing.JFrame {
 
         jTable2.setModel(tableModel);
 
-        obtenerTitulos();
-        comprobarTitulos();
+
 
 
     }
@@ -327,31 +326,9 @@ public class menuPrincipal extends javax.swing.JFrame {
 
     }
 
-    public void obtenerTitulos() {
 
-        for (int i = 0; i < datos.size(); i++) {
-            titulos.add(i, datos.get(i).get(0));
-        }
-
-    }
     
-    public void comprobarTitulos(){
-        
-        
-     
-   
-        
-        
-        
-        for(int i=0;i<titulos.size();i++){
-            for(int j=0;j<titulos.size();j++){
-                if(titulos.get(i)==titulos.get(j)){
-                    titulos.remove(j);
-                }
-            }
-        }
-        
-    }
+ 
     
 
     public static void obtenerIdiomas() {

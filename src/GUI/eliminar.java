@@ -5,7 +5,10 @@
  */
 package GUI;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -13,11 +16,16 @@ import javax.swing.DefaultComboBoxModel;
  */
 public class eliminar extends javax.swing.JFrame {
 
+    public List<String> titulos = new ArrayList<>();
+    int eliminar = -1;
+
     /**
      * Creates new form eliminar
      */
     public eliminar() {
+        obtenerTitulos();
         initComponents();
+
     }
 
     /**
@@ -35,10 +43,20 @@ public class eliminar extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jComboBox1.setModel(new DefaultComboBoxModel(menuPrincipal.titulos.toArray()));
+        jComboBox1.setModel(new DefaultComboBoxModel(titulos.toArray()));
         jComboBox1.setSelectedIndex(-1);
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText(menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(2));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText(menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(15));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -84,11 +102,44 @@ public class eliminar extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
         new menuPrincipal().setVisible(true);
         this.dispose();
-        
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+
+        menuPrincipal.datos.remove(eliminar);
+        new menuPrincipal().setVisible(true);
+        this.dispose();
+
+//        Object selected = cb.getSelectedItem();
+//        for (int i = 0; i < menuPrincipal.datos.size(); i++) {
+//            if (selected.toString().equals(menuPrincipal.datos.get(i).get(0))) {
+//                menuPrincipal.datos.remove(i);
+//                
+//
+//            }
+//        }
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+       JComboBox cb = (JComboBox) evt.getSource();
+        eliminar = cb.getSelectedIndex();
+
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    public void obtenerTitulos() {
+
+        for (int i = 0; i < menuPrincipal.datos.size(); i++) {
+            titulos.add(i, menuPrincipal.datos.get(i).get(0));
+        }
+
+    }
 
     /**
      * @param args the command line arguments

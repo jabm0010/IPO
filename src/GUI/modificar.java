@@ -5,6 +5,9 @@
  */
 package GUI;
 
+import static GUI.menuPrincipal.datos;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 
@@ -13,12 +16,16 @@ import javax.swing.JComboBox;
  * @author Juan Béjar
  */
 public class modificar extends javax.swing.JFrame {
+    
+     public List<String> titulos = new ArrayList<>();
 
     /**
      * Creates new form modificar
      */
     public modificar() {
+          obtenerTitulos();
         initComponents();
+     
     }
 
     /**
@@ -45,7 +52,7 @@ public class modificar extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jComboBox1.setModel(new DefaultComboBoxModel(menuPrincipal.titulos.toArray()));
+        jComboBox1.setModel(new DefaultComboBoxModel(titulos.toArray()));
         jComboBox1.setSelectedIndex(0);
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -201,10 +208,21 @@ public class modificar extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
+      public void obtenerTitulos() {
+
+        for (int i = 0; i < menuPrincipal.datos.size(); i++) {
+            titulos.add(i, menuPrincipal.datos.get(i).get(0));
+        }
+
+    }
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+         
+      
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
