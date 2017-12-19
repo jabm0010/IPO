@@ -20,6 +20,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 import javax.swing.table.DefaultTableModel;
@@ -35,17 +36,15 @@ public class menuPrincipal extends javax.swing.JFrame {
 
     //Estructura de datos donde se almacena la información relativa a los idiomas
     static public LinkedList<LinkedList<String>> contenido = new LinkedList<>();
-    
-    static public LinkedList<LinkedList<String>> fotos=new LinkedList<>();
-    
+
+    static public LinkedList<LinkedList<String>> fotos = new LinkedList<>();
+
     static public int idiomaElegido = 0;
 
     static public List<String> idiomas = new ArrayList<>();
 
     //Estructura de datos donde se almacena la informacion del fichero de datos
     static public List<List<String>> datos = new ArrayList<>();
-    
-
 
     /**
      * Creates new form menuPrincipal
@@ -65,13 +64,11 @@ public class menuPrincipal extends javax.swing.JFrame {
 
         jTable2.setModel(tableModel);
 
-
-         BufferedImage myPicture = ImageIO.read(new File(fotos.get(idiomaElegido).get(1)));
+        BufferedImage myPicture = ImageIO.read(new File(fotos.get(idiomaElegido).get(1)));
         // myPicture.getScaledInstance(4, 4, Image.SCALE_DEFAULT);
-         bandera.setIcon(new ImageIcon(myPicture.getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
-       // bandera.setSize(4, 4);
+        bandera.setIcon(new ImageIcon(myPicture.getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+        // bandera.setSize(4, 4);
         //jPanel1.add(bandera,BorderLayout.CENTER);
-        
 
     }
 
@@ -315,12 +312,15 @@ public class menuPrincipal extends javax.swing.JFrame {
 
     private void jRadioButtonMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem3ActionPerformed
         // TODO add your handling code here:
-        if(datos.size()!=0){
-        new eliminar().setVisible(true);
-        this.dispose();
-        }else{
-            new error().setVisible(true);
+        if (datos.size() != 0) {
+
+            new eliminar().setVisible(true);
             this.dispose();
+
+        } else {
+            JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(18), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
+                    JOptionPane.ERROR_MESSAGE);
+            jRadioButtonMenuItem3.setSelected(false);
         }
     }//GEN-LAST:event_jRadioButtonMenuItem3ActionPerformed
 
@@ -332,12 +332,13 @@ public class menuPrincipal extends javax.swing.JFrame {
 
     private void jRadioButtonMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem4ActionPerformed
         // TODO add your handling code here:
-        if(datos.size()!=0){
-        new modificar().setVisible(true);
-        this.dispose();
-        }else{
-            new error().setVisible(true);
+        if (datos.size() != 0) {
+            new modificar().setVisible(true);
             this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(18), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
+                    JOptionPane.ERROR_MESSAGE);
+            jRadioButtonMenuItem4.setSelected(false);
     }//GEN-LAST:event_jRadioButtonMenuItem4ActionPerformed
     }
     private void jRadioButtonMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem7ActionPerformed
@@ -348,10 +349,19 @@ public class menuPrincipal extends javax.swing.JFrame {
 
     private void jRadioButtonMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem6ActionPerformed
         // TODO add your handling code here:
-        new exportarDatos().setVisible(true);
-        this.dispose();
-        
+
+        if (datos.size() != 0) {
+            new modificar().setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(18), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
+                    JOptionPane.ERROR_MESSAGE);
+            jRadioButtonMenuItem5.setSelected(false);
+
+        }
     }//GEN-LAST:event_jRadioButtonMenuItem6ActionPerformed
+
+    
 
     static public void insertarDatos(String a, String b, String c) {
         LinkedList<String> l = new LinkedList<>();
@@ -359,11 +369,10 @@ public class menuPrincipal extends javax.swing.JFrame {
         l.addLast(b);
         l.addLast(c);
         datos.add(l);
-        
-        for(int i=0;i<datos.size();i++){
+
+        for (int i = 0; i < datos.size(); i++) {
             System.out.println(datos.get(i).get(0));
         }
-        
 
     }
 
@@ -380,11 +389,6 @@ public class menuPrincipal extends javax.swing.JFrame {
         datos = lFD.devolverContenido();
 
     }
-
-
-    
- 
-    
 
     public static void obtenerIdiomas() {
         for (int i = 0; i < contenido.size(); i++) {
@@ -403,11 +407,8 @@ public class menuPrincipal extends javax.swing.JFrame {
         contenido = l.contenidos();
 
         obtenerIdiomas();
-        
-        fotos=l.fotos();
-        
-     
-        
+
+        fotos = l.fotos();
 
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

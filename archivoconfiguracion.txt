@@ -1,4 +1,4 @@
-21
+24
 es
 Insertar
 Borrar
@@ -17,9 +17,12 @@ Seleccionar idioma
 Cancelar
 Seleccione un idioma
 Castellano
-Error! No hay datos todavia
+No hay datos todavia
 Exportar
 Fichero importado correctamente
+El libro fue insertado correctamennte
+No se pudo insertar
+Mensaje
 en
 Add
 Delete
@@ -38,9 +41,12 @@ Choose language
 Cancel
 Choose a language
 English
-Error! No data yet
+No data yet
 Export
 File imported correctly
+The book was inserted correctly
+Could not insert
+Message
 2
 es
 b1.png

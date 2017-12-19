@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -64,14 +65,11 @@ public class insertar extends javax.swing.JFrame {
 
         jLabel3.setText(menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(6));
 
-        jTextField1.setText("                    ");
-        jTextField1.setCaretPosition(0);
+        jTextField1.setText("");
 
-        jTextField2.setText("                    ");
-        jTextField2.setCaretPosition(0);
+        jTextField2.setText("");
 
-        jTextField3.setText("                    ");
-        jTextField3.setCaretPosition(0);
+        jTextField3.setText("");
 
         jButton2.setText(menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(15));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -154,10 +152,13 @@ public class insertar extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-        String titulo=jTextField1.getText();
+        String titulo=jTextField1.getText().trim();
         System.out.println(titulo);
         String fechaLanzamient=jTextField2.getText();
         String autor=jTextField3.getText();
+        
+        
+        
 //
 //        LinkedList<String> l=new LinkedList<>();
 //        l.addLast(titulo);
@@ -165,9 +166,18 @@ public class insertar extends javax.swing.JFrame {
 //        l.addLast(autor);
 
 
-        
+        if(!titulo.isEmpty()){
           menuPrincipal.insertarDatos(titulo, fechaLanzamient, autor);
         
+        JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(21),menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
+                JOptionPane.INFORMATION_MESSAGE);
+        }else{
+
+         
+        JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(22), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23)
+                ,JOptionPane.ERROR_MESSAGE);
+        
+        }
         
         menuPrincipal mp;
         try {

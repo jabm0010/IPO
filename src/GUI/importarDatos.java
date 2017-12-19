@@ -114,8 +114,8 @@ public class importarDatos extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         
-        JOptionPane dialogo=new JOptionPane();
-        JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(20));
+  JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(20),menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
+                JOptionPane.INFORMATION_MESSAGE);
         
         
         ruta = jTextField1.getText();
