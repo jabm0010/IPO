@@ -85,7 +85,7 @@
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(11)" type="code"/>
+          <Connection code="menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(8)" type="code"/>
         </Property>
       </Properties>
       <Events>

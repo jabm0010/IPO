@@ -1,4 +1,4 @@
-32
+33
 es
 Insertar
 Borrar
@@ -31,6 +31,7 @@ Libro borrado correctamente
 Fichero exportado correctamente
 Aceptar
 Fichero erroneo
+Seleccione un libro
 en
 Add
 Delete
@@ -63,8 +64,44 @@ Book deleted correctly
 File exported correctly
 Ok
 Not valid file
+Select a book
+es
+Insertar
+Borrar
+Modificar
+Titulo
+Fecha de lanzamiento
+Autor
+Datos
+Importar
+Exportar
+Introduzca el nombre del fichero
+Confirmar
+Opciones
+Ajustes
+Seleccionar idioma
+Cancelar
+Seleccione un idioma
+Castellano
+No hay datos todavia
+Exportar
+Fichero importado correctamente
+El libro fue insertado correctamennte
+No se pudo insertar
+Mensaje
+No se pudo eliminar
+El libro fue modificado correctamente
+El libro no pudo ser modificado
+Idioma seleccionado correctamente
+Libro borrado correctamente
+Fichero exportado correctamente
+Aceptar
+Fichero erroneo
+Select a book
 2
 es
 b1.png
 en
 b2.png
+es
+b1.png
