@@ -6,6 +6,7 @@
 package GUI;
 
 import java.io.IOException;
+import javax.swing.JOptionPane;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -112,6 +113,11 @@ public class importarDatos extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
+        
+        JOptionPane dialogo=new JOptionPane();
+        JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(20));
+        
+        
         ruta = jTextField1.getText();
 
         try {

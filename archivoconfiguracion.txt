@@ -1,4 +1,4 @@
-20
+21
 es
 Insertar
 Borrar
@@ -19,6 +19,7 @@ Seleccione un idioma
 Castellano
 Error! No hay datos todavia
 Exportar
+Fichero importado correctamente
 en
 Add
 Delete
@@ -39,6 +40,7 @@ Choose a language
 English
 Error! No data yet
 Export
+File imported correctly
 2
 es
 b1.png
