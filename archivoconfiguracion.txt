@@ -41,6 +41,6 @@ Error! No data yet
 Export
 2
 es
-hola
+b1.png
 en
-hi
+b2.png

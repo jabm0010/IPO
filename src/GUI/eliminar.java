@@ -5,8 +5,11 @@
  */
 package GUI;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 
@@ -101,8 +104,12 @@ public class eliminar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        new menuPrincipal().setVisible(true);
+        try {
+            // TODO add your handling code here:
+            new menuPrincipal().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(eliminar.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.dispose();
 
 
@@ -112,7 +119,11 @@ public class eliminar extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         menuPrincipal.datos.remove(eliminar);
-        new menuPrincipal().setVisible(true);
+        try {
+            new menuPrincipal().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(eliminar.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.dispose();
 
 //        Object selected = cb.getSelectedItem();

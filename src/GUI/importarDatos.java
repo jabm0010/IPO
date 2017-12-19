@@ -126,15 +126,25 @@ public class importarDatos extends javax.swing.JFrame {
             Logger.getLogger(importarDatos.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-       menuPrincipal mp=new menuPrincipal();
-        mp.setVisible(true);
+       menuPrincipal mp;
+        try {
+            mp = new menuPrincipal();
+                mp.setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(importarDatos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
         this.dispose();
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        new menuPrincipal().setVisible(true);
+        try {
+            // TODO add your handling code here:
+            new menuPrincipal().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(importarDatos.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.dispose();
         
     }//GEN-LAST:event_jButton2ActionPerformed

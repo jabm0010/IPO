@@ -7,10 +7,19 @@ package GUI;
 
 import ipo.leerFicheroConfig;
 import ipo.leerFicheroDatos;
+import java.awt.BorderLayout;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 import javax.swing.table.DefaultTableModel;
@@ -26,17 +35,22 @@ public class menuPrincipal extends javax.swing.JFrame {
 
     //Estructura de datos donde se almacena la información relativa a los idiomas
     static public LinkedList<LinkedList<String>> contenido = new LinkedList<>();
+    
+    static public LinkedList<LinkedList<String>> fotos=new LinkedList<>();
+    
     static public int idiomaElegido = 0;
 
     static public List<String> idiomas = new ArrayList<>();
 
     //Estructura de datos donde se almacena la informacion del fichero de datos
     static public List<List<String>> datos = new ArrayList<>();
+    
+
 
     /**
      * Creates new form menuPrincipal
      */
-    public menuPrincipal() {
+    public menuPrincipal() throws IOException {
         initComponents();
         String col[] = {contenido.get(idiomaElegido).get(4), contenido.get(idiomaElegido).get(5),
             contenido.get(idiomaElegido).get(6)};
@@ -52,7 +66,12 @@ public class menuPrincipal extends javax.swing.JFrame {
         jTable2.setModel(tableModel);
 
 
-
+         BufferedImage myPicture = ImageIO.read(new File(fotos.get(idiomaElegido).get(1)));
+        // myPicture.getScaledInstance(4, 4, Image.SCALE_DEFAULT);
+         bandera.setIcon(new ImageIcon(myPicture.getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+       // bandera.setSize(4, 4);
+        //jPanel1.add(bandera,BorderLayout.CENTER);
+        
 
     }
 
@@ -99,6 +118,8 @@ public class menuPrincipal extends javax.swing.JFrame {
             contenido.get(idiomaElegido).get(6)};
         DefaultTableModel tableModel = new DefaultTableModel(col, 0);
         jTable2 = new javax.swing.JTable(tableModel);
+        jPanel1 = new javax.swing.JPanel();
+        bandera = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         operaciones = new javax.swing.JMenu();
         jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
@@ -189,6 +210,21 @@ public class menuPrincipal extends javax.swing.JFrame {
         //tc3.setHeaderValue( contenido.get(idiomaElegido).get(6) );
         //th.repaint();
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 20, Short.MAX_VALUE)
+                .addComponent(bandera, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(bandera, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
+        );
+
         operaciones.setText(contenido.get(idiomaElegido).get(12)
         );
 
@@ -253,13 +289,17 @@ public class menuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(540, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jScrollPane2)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
+                .addGap(11, 11, 11)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -363,6 +403,11 @@ public class menuPrincipal extends javax.swing.JFrame {
         contenido = l.contenidos();
 
         obtenerIdiomas();
+        
+        fotos=l.fotos();
+        
+     
+        
 
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -390,7 +435,11 @@ public class menuPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new menuPrincipal().setVisible(true);
+                try {
+                    new menuPrincipal().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(menuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
 
         });
@@ -398,6 +447,7 @@ public class menuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bandera;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem3;
@@ -424,6 +474,7 @@ public class menuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar5;
     private javax.swing.JMenuBar jMenuBar6;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu jPopupMenu2;
     private javax.swing.JPopupMenu jPopupMenu3;

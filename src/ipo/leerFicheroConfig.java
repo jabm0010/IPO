@@ -96,6 +96,10 @@ public class leerFicheroConfig {
         return contenido;
     }
 
+        public LinkedList<LinkedList<String>> fotos(){
+        return fotos;
+    }
+    
     
     
     

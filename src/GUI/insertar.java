@@ -5,7 +5,10 @@
  */
 package GUI;
 
+import java.io.IOException;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -160,8 +163,14 @@ public class insertar extends javax.swing.JFrame {
           menuPrincipal.insertarDatos(titulo, fechaLanzamient, autor);
         
         
-        menuPrincipal mp=new menuPrincipal();
-        mp.setVisible(true);
+        menuPrincipal mp;
+        try {
+            mp = new menuPrincipal();
+               mp.setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(insertar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     
         
         this.dispose();
         
@@ -170,8 +179,14 @@ public class insertar extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        menuPrincipal mp=new menuPrincipal();
-        mp.setVisible(true);
+        menuPrincipal mp;
+        try {
+            mp = new menuPrincipal();
+               mp.setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(insertar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     
         
         this.dispose();
         
