@@ -110,8 +110,10 @@ public class exportarDatos extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
 
-        JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(29), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
-                JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showOptionDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(29), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
+                 JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, null,
+                new String[]{menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30)},
+                menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30));
 
         escribirFicheroDatos.FILENAME = jTextField1.getText();
         escribirFicheroDatos ec = new escribirFicheroDatos();

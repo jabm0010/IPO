@@ -122,12 +122,13 @@ public class seleccionarIdioma extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        menuPrincipal.idiomaElegido=idioma;
+       
         try {
             
             
             JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(27), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
                     JOptionPane.INFORMATION_MESSAGE);
+             menuPrincipal.idiomaElegido=idioma;
 
             new menuPrincipal().setVisible(true);
         } catch (IOException ex) {

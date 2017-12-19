@@ -318,9 +318,12 @@ public class menuPrincipal extends javax.swing.JFrame {
             this.dispose();
 
         } else {
-            JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(18), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
-                    JOptionPane.ERROR_MESSAGE);
-            jRadioButtonMenuItem3.setSelected(false);
+
+            JOptionPane.showOptionDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(18), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
+                     JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null,
+                    new String[]{menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30)},
+                    menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30));
+    jRadioButtonMenuItem3.setSelected(false);
         }
     }//GEN-LAST:event_jRadioButtonMenuItem3ActionPerformed
 
@@ -336,8 +339,12 @@ public class menuPrincipal extends javax.swing.JFrame {
             new modificar().setVisible(true);
             this.dispose();
         } else {
-            JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(18), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
-                    JOptionPane.ERROR_MESSAGE);
+
+            JOptionPane.showOptionDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(18), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
+                     JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null,
+                    new String[]{menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30)},
+                    menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30));
+
             jRadioButtonMenuItem4.setSelected(false);
     }//GEN-LAST:event_jRadioButtonMenuItem4ActionPerformed
     }
@@ -354,14 +361,16 @@ public class menuPrincipal extends javax.swing.JFrame {
             new exportarDatos().setVisible(true);
             this.dispose();
         } else {
-            JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(18), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
-                    JOptionPane.ERROR_MESSAGE);
-            jRadioButtonMenuItem6.setSelected(false);
+
+            JOptionPane.showOptionDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(18), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
+                     JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null,
+                    new String[]{menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30)},
+                    menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30));
 
         }
+        
+            jRadioButtonMenuItem6.setSelected(false);
     }//GEN-LAST:event_jRadioButtonMenuItem6ActionPerformed
-
-    
 
     static public void insertarDatos(String a, String b, String c) {
         LinkedList<String> l = new LinkedList<>();

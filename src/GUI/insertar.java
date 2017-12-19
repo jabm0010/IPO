@@ -46,7 +46,6 @@ public class insertar extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        jSeparator3 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -101,9 +100,6 @@ public class insertar extends javax.swing.JFrame {
                                     .addComponent(jLabel1)
                                     .addComponent(jLabel3)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(190, 190, 190)
-                                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(154, 154, 154)
                                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
@@ -137,11 +133,9 @@ public class insertar extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton2)
-                        .addComponent(jButton1)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -160,8 +154,13 @@ public class insertar extends javax.swing.JFrame {
         if (!titulo.isEmpty()) {
             menuPrincipal.insertarDatos(titulo, fechaLanzamient, autor);
 
-            JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(21), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
-                    JOptionPane.INFORMATION_MESSAGE);
+                    
+        JOptionPane.showOptionDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(21), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23)
+                , JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, null, 
+                new String[]{menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30)},
+               menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30) );
+            
+
 
             menuPrincipal mp;
             try {
@@ -175,8 +174,12 @@ public class insertar extends javax.swing.JFrame {
 
         } else {
 
-            JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(22), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
-                     JOptionPane.ERROR_MESSAGE);
+                    
+        JOptionPane.showOptionDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(22), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23)
+                , JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null, 
+                new String[]{menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30)},
+               menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30) );
+
 
         }
 
@@ -244,7 +247,6 @@ public class insertar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;

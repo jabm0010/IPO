@@ -114,16 +114,18 @@ public class importarDatos extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         
-  JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(20),menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
-                JOptionPane.INFORMATION_MESSAGE);
-        
+        JOptionPane.showOptionDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(20), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23)
+                , JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, null, 
+                new String[]{menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30)},
+               menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30) );
+  
+
+   
         
         ruta = jTextField1.getText();
 
         try {
-            //        menuPrincipal m=new menuPrincipal();
-            //        m.setVisible(true);
-            //        m.setAlwaysOnTop(true);
+            
             menuPrincipal.cargarDatos(ruta);
         } catch (IOException ex) {
             Logger.getLogger(importarDatos.class.getName()).log(Level.SEVERE, null, ex);

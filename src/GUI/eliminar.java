@@ -112,9 +112,14 @@ public class eliminar extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         if (eliminar != -1) {
+            
+            
+                    JOptionPane.showOptionDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(28), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23)
+                , JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, null, 
+                new String[]{menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30)},
+               menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30) );
 
-            JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(28), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
-                    JOptionPane.INFORMATION_MESSAGE);
+
 
             menuPrincipal.datos.remove(eliminar);
             try {
@@ -125,8 +130,10 @@ public class eliminar extends javax.swing.JFrame {
             this.dispose();
 
         } else {
-            JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(24), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
-                    JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showOptionDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(24), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23)
+                , JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null, 
+                new String[]{menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30)},
+               menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30) );
 
         }
 

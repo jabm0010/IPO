@@ -1,4 +1,4 @@
-30
+31
 es
 Insertar
 Borrar
@@ -29,6 +29,7 @@ El libro no pudo ser modificado
 Idioma seleccionado correctamente
 Libro borrado correctamente
 Fichero exportado correctamente
+Aceptar
 en
 Add
 Delete
@@ -59,6 +60,7 @@ The book could not be modified
 Language selected correctly
 Book deleted correctly
 File exported correctly
+Ok
 2
 es
 b1.png

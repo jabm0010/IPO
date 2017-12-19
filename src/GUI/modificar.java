@@ -175,25 +175,31 @@ public class modificar extends javax.swing.JFrame {
         if (!titulo.isEmpty()) {
 
             menuPrincipal.modificarDatos(titulo, fechaLanzamient, autor, jComboBox1.getSelectedIndex());
-            JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(25), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
-                    JOptionPane.INFORMATION_MESSAGE);
-        menuPrincipal mp;
-        try {
-            mp = new menuPrincipal();
-            mp.setVisible(true);
-        } catch (IOException ex) {
-            Logger.getLogger(modificar.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
-        this.dispose();
-            
+            JOptionPane.showOptionDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(25), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
+                    JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, null,
+                    new String[]{menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30)},
+                    menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30));
+
+            menuPrincipal mp;
+            try {
+                mp = new menuPrincipal();
+                mp.setVisible(true);
+            } catch (IOException ex) {
+                Logger.getLogger(modificar.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            this.dispose();
+
         } else {
 
-            JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(26), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
-                     JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showOptionDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(26), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
+                     JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null,
+                    new String[]{menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30)},
+                    menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30));
+
 
         }
-
 
 
     }//GEN-LAST:event_jButton1ActionPerformed
