@@ -110,21 +110,27 @@ public class exportarDatos extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
 
-        JOptionPane.showOptionDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(29), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
-                 JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, null,
-                new String[]{menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30)},
-                menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30));
+        if (!jTextField1.getText().trim().isEmpty()) {
+            JOptionPane.showOptionDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(29), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
+                    JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, null,
+                    new String[]{menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30)},
+                    menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30));
 
-        escribirFicheroDatos.FILENAME = jTextField1.getText();
-        escribirFicheroDatos ec = new escribirFicheroDatos();
+            escribirFicheroDatos.FILENAME = jTextField1.getText();
+            escribirFicheroDatos ec = new escribirFicheroDatos();
 
-        try {
-            new menuPrincipal().setVisible(true);
-        } catch (IOException ex) {
-            Logger.getLogger(exportarDatos.class.getName()).log(Level.SEVERE, null, ex);
+            try {
+                new menuPrincipal().setVisible(true);
+            } catch (IOException ex) {
+                Logger.getLogger(exportarDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            this.dispose();
+        } else {
+            JOptionPane.showOptionDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(31), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
+                    JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null,
+                    new String[]{menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30)},
+                    menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30));
         }
-        this.dispose();
-
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

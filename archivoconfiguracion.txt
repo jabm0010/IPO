@@ -1,4 +1,4 @@
-31
+32
 es
 Insertar
 Borrar
@@ -30,6 +30,7 @@ Idioma seleccionado correctamente
 Libro borrado correctamente
 Fichero exportado correctamente
 Aceptar
+Fichero erroneo
 en
 Add
 Delete
@@ -61,6 +62,7 @@ Language selected correctly
 Book deleted correctly
 File exported correctly
 Ok
+Not valid file
 2
 es
 b1.png

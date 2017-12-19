@@ -113,34 +113,38 @@ public class importarDatos extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
-        
-        JOptionPane.showOptionDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(20), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23)
-                , JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, null, 
-                new String[]{menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30)},
-               menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30) );
-  
-
-   
-        
         ruta = jTextField1.getText();
+        if (!ruta.trim().isEmpty()) {
 
-        try {
-            
-            menuPrincipal.cargarDatos(ruta);
-        } catch (IOException ex) {
-            Logger.getLogger(importarDatos.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            JOptionPane.showOptionDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(20), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
+                    JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, null,
+                    new String[]{menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30)},
+                    menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30));
 
-       menuPrincipal mp;
-        try {
-            mp = new menuPrincipal();
+            try {
+
+                menuPrincipal.cargarDatos(ruta);
+            } catch (IOException ex) {
+                Logger.getLogger(importarDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            menuPrincipal mp;
+            try {
+                mp = new menuPrincipal();
                 mp.setVisible(true);
-        } catch (IOException ex) {
-            Logger.getLogger(importarDatos.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    
-        this.dispose();
+            } catch (IOException ex) {
+                Logger.getLogger(importarDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
+            this.dispose();
+        } else {
+
+            JOptionPane.showOptionDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(31), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
+                     JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE, null,
+                    new String[]{menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30)},
+                    menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(30));
+
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -151,7 +155,7 @@ public class importarDatos extends javax.swing.JFrame {
             Logger.getLogger(importarDatos.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.dispose();
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -161,7 +165,7 @@ public class importarDatos extends javax.swing.JFrame {
 
         contenido = menuPrincipal.contenido;
         idiomaElegido = menuPrincipal.idiomaElegido;
-        
+
 
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
