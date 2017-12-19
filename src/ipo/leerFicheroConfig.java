@@ -21,54 +21,75 @@ import java.util.Scanner;
  */
 public class leerFicheroConfig {
     private LinkedList<LinkedList<String>> contenido=new LinkedList<>();
+    private LinkedList<LinkedList<String>> fotos=new LinkedList<>();
     private int pos=0;
+    private int posFotos=0;
+    int numCadenasId;
       
     
     public leerFicheroConfig() throws FileNotFoundException, IOException{
 
 
         int contadorIdiomas=0;
-        FileReader fichero=new FileReader("archivoconfiguracion.txt");
-        String cadena;
+        File fich=new File("archivoconfiguracion.txt");
+        Scanner scnr = new Scanner(fich);
+        String cadena=scnr.nextLine();
+        int numCadenasIdioma=Integer.parseInt(cadena);
+        numCadenasId=numCadenasIdioma;
+       
+        
+        while(!scnr.hasNextInt() && scnr.hasNextLine()){
 
-        BufferedReader lectura = new BufferedReader(fichero);
-        
-        cadena=lectura.readLine();
-        int numCadenasIdioma;
-        numCadenasIdioma=Integer.parseInt(cadena);
-        System.out.println(numCadenasIdioma);
-        
-        while((cadena=lectura.readLine())!=null){
-            
-
-            LinkedList<String> lis=new LinkedList<>();
-        
-            lis.addLast(cadena);
-            for(int i=1;i<numCadenasIdioma;i++){
-                String actual=lectura.readLine();
-                System.out.println(pos+"-"+i+"-"+actual);
-                lis.addLast(actual);
+                LinkedList<String> lis=new LinkedList<>();
+                for(int i=0;i<numCadenasIdioma;i++){
+                    String actual=scnr.nextLine();
+                    System.out.println(pos+"-"+i+"-"+actual);
+                    lis.addLast(actual);
+                    
+                }
+                
+                contenido.add(pos,lis);
+                pos++;
+                contadorIdiomas++;
             }
             
-            
-            contenido.add(pos, lis);
-            pos++;  
-            contadorIdiomas++;
-            
-        }
-            
-            
-            
-        
-        
-        
-        
-        
-        
-        lectura.close();
-        
+        leerFotos();
+
         
     }
+    
+    public void leerFotos() throws FileNotFoundException{
+        int tmp=pos+1;
+        int nuevaPos=0;
+        int cadenasAIgnorar=numCadenasId*pos;
+        cadenasAIgnorar++;
+        File fich=new File("archivoconfiguracion.txt");
+        Scanner scnr = new Scanner(fich);
+        for(int i=0;i<cadenasAIgnorar;i++){
+            String ab=scnr.nextLine();
+           // System.out.println(ab);
+        }
+        
+        String cadenaFotos=scnr.nextLine();
+        int numCadenasFotos=Integer.parseInt(cadenaFotos);
+        
+        while(scnr.hasNextLine()){
+                LinkedList<String> lis=new LinkedList<>();
+                for(int i=0;i<numCadenasFotos;i++){
+                    String actual=scnr.nextLine();
+                    System.out.println(nuevaPos+"-"+i+"-"+actual);
+                    lis.addLast(actual);
+                }
+                
+                fotos.add(nuevaPos,lis);
+                nuevaPos++;
+                
+        }
+        
+
+        
+    }
+    
     
     
     public LinkedList<LinkedList<String>> contenidos(){
