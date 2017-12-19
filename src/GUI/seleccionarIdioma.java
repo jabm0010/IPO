@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -123,6 +124,11 @@ public class seleccionarIdioma extends javax.swing.JFrame {
         // TODO add your handling code here:
         menuPrincipal.idiomaElegido=idioma;
         try {
+            
+            
+            JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(27), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
+                    JOptionPane.INFORMATION_MESSAGE);
+
             new menuPrincipal().setVisible(true);
         } catch (IOException ex) {
             Logger.getLogger(seleccionarIdioma.class.getName()).log(Level.SEVERE, null, ex);

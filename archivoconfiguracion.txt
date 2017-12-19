@@ -1,4 +1,4 @@
-24
+30
 es
 Insertar
 Borrar
@@ -23,6 +23,12 @@ Fichero importado correctamente
 El libro fue insertado correctamennte
 No se pudo insertar
 Mensaje
+No se pudo eliminar
+El libro fue modificado correctamente
+El libro no pudo ser modificado
+Idioma seleccionado correctamente
+Libro borrado correctamente
+Fichero exportado correctamente
 en
 Add
 Delete
@@ -47,6 +53,12 @@ File imported correctly
 The book was inserted correctly
 Could not insert
 Message
+Could not delete
+The book was modified correctly
+The book could not be modified
+Language selected correctly
+Book deleted correctly
+File exported correctly
 2
 es
 b1.png

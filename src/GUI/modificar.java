@@ -13,22 +13,23 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Juan Béjar
  */
 public class modificar extends javax.swing.JFrame {
-    
-     public List<String> titulos = new ArrayList<>();
+
+    public List<String> titulos = new ArrayList<>();
 
     /**
      * Creates new form modificar
      */
     public modificar() {
-          obtenerTitulos();
+        obtenerTitulos();
         initComponents();
-     
+
     }
 
     /**
@@ -166,28 +167,34 @@ public class modificar extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
-        String titulo = jTextField1.getText();
+        String titulo = jTextField1.getText().trim();
         System.out.println(titulo);
         String fechaLanzamient = jTextField2.getText();
         String autor = jTextField3.getText();
-        //
-        //        LinkedList<String> l=new LinkedList<>();
-        //        l.addLast(titulo);
-        //        l.addLast(fechaLanzamient);
-        //        l.addLast(autor);
 
-        menuPrincipal.modificarDatos(titulo, fechaLanzamient, autor, jComboBox1.getSelectedIndex());
+        if (!titulo.isEmpty()) {
 
+            menuPrincipal.modificarDatos(titulo, fechaLanzamient, autor, jComboBox1.getSelectedIndex());
+            JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(25), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
+                    JOptionPane.INFORMATION_MESSAGE);
         menuPrincipal mp;
-         try {
-             mp = new menuPrincipal();
-               mp.setVisible(true);
-         } catch (IOException ex) {
-             Logger.getLogger(modificar.class.getName()).log(Level.SEVERE, null, ex);
-         }
-      
+        try {
+            mp = new menuPrincipal();
+            mp.setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(modificar.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         this.dispose();
+            
+        } else {
+
+            JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(26), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
+                     JOptionPane.ERROR_MESSAGE);
+
+        }
+
+
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -207,34 +214,30 @@ public class modificar extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         try {
-             // TODO add your handling code here:
-             new menuPrincipal().setVisible(true);
-         } catch (IOException ex) {
-             Logger.getLogger(modificar.class.getName()).log(Level.SEVERE, null, ex);
-         }
+        try {
+            // TODO add your handling code here:
+            new menuPrincipal().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(modificar.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.dispose();
-        
-        
 
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
-      public void obtenerTitulos() {
+    public void obtenerTitulos() {
 
         for (int i = 0; i < menuPrincipal.datos.size(); i++) {
             titulos.add(i, menuPrincipal.datos.get(i).get(0));
         }
 
     }
-    
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-         
-      
-        
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

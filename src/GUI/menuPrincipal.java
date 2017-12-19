@@ -351,12 +351,12 @@ public class menuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         if (datos.size() != 0) {
-            new modificar().setVisible(true);
+            new exportarDatos().setVisible(true);
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(18), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
                     JOptionPane.ERROR_MESSAGE);
-            jRadioButtonMenuItem5.setSelected(false);
+            jRadioButtonMenuItem6.setSelected(false);
 
         }
     }//GEN-LAST:event_jRadioButtonMenuItem6ActionPerformed

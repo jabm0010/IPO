@@ -17,10 +17,9 @@ import javax.swing.JOptionPane;
  */
 public class insertar extends javax.swing.JFrame {
 
-    static public  LinkedList<LinkedList<String>> contenido=new LinkedList<>();
-    static public int idiomaElegido=0;
-    
-    
+    static public LinkedList<LinkedList<String>> contenido = new LinkedList<>();
+    static public int idiomaElegido = 0;
+
     /**
      * Creates new form insertar
      */
@@ -151,46 +150,37 @@ public class insertar extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-        String titulo=jTextField1.getText().trim();
+
+        String titulo = jTextField1.getText().trim();
         System.out.println(titulo);
-        String fechaLanzamient=jTextField2.getText();
-        String autor=jTextField3.getText();
-        
-        
-        
-//
-//        LinkedList<String> l=new LinkedList<>();
-//        l.addLast(titulo);
-//        l.addLast(fechaLanzamient);
-//        l.addLast(autor);
+        String fechaLanzamient = jTextField2.getText();
+        String autor = jTextField3.getText();
 
 
-        if(!titulo.isEmpty()){
-          menuPrincipal.insertarDatos(titulo, fechaLanzamient, autor);
-        
-        JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(21),menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
-                JOptionPane.INFORMATION_MESSAGE);
-        }else{
+        if (!titulo.isEmpty()) {
+            menuPrincipal.insertarDatos(titulo, fechaLanzamient, autor);
 
-         
-        JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(22), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23)
-                ,JOptionPane.ERROR_MESSAGE);
-        
+            JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(21), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
+                    JOptionPane.INFORMATION_MESSAGE);
+
+            menuPrincipal mp;
+            try {
+                mp = new menuPrincipal();
+                mp.setVisible(true);
+            } catch (IOException ex) {
+                Logger.getLogger(insertar.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            this.dispose();
+
+        } else {
+
+            JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(22), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
+                     JOptionPane.ERROR_MESSAGE);
+
         }
-        
-        menuPrincipal mp;
-        try {
-            mp = new menuPrincipal();
-               mp.setVisible(true);
-        } catch (IOException ex) {
-            Logger.getLogger(insertar.class.getName()).log(Level.SEVERE, null, ex);
-        }
-     
-        
-        this.dispose();
-        
-        
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -198,24 +188,23 @@ public class insertar extends javax.swing.JFrame {
         menuPrincipal mp;
         try {
             mp = new menuPrincipal();
-               mp.setVisible(true);
+            mp.setVisible(true);
         } catch (IOException ex) {
             Logger.getLogger(insertar.class.getName()).log(Level.SEVERE, null, ex);
         }
-     
-        
+
         this.dispose();
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
-        contenido=menuPrincipal.contenido;
-        idiomaElegido=menuPrincipal.idiomaElegido;
-        
+
+        contenido = menuPrincipal.contenido;
+        idiomaElegido = menuPrincipal.idiomaElegido;
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

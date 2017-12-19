@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -110,29 +111,32 @@ public class eliminar extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        if (eliminar != -1) {
 
-        menuPrincipal.datos.remove(eliminar);
-        try {
-            new menuPrincipal().setVisible(true);
-        } catch (IOException ex) {
-            Logger.getLogger(eliminar.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(28), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
+                    JOptionPane.INFORMATION_MESSAGE);
+
+            menuPrincipal.datos.remove(eliminar);
+            try {
+                new menuPrincipal().setVisible(true);
+            } catch (IOException ex) {
+                Logger.getLogger(eliminar.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            this.dispose();
+
+        } else {
+            JOptionPane.showMessageDialog(this, menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(24), menuPrincipal.contenido.get(menuPrincipal.idiomaElegido).get(23),
+                    JOptionPane.ERROR_MESSAGE);
+
         }
-        this.dispose();
 
-//        Object selected = cb.getSelectedItem();
-//        for (int i = 0; i < menuPrincipal.datos.size(); i++) {
-//            if (selected.toString().equals(menuPrincipal.datos.get(i).get(0))) {
-//                menuPrincipal.datos.remove(i);
-//                
-//
-//            }
-//        }
+
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
-       JComboBox cb = (JComboBox) evt.getSource();
+        JComboBox cb = (JComboBox) evt.getSource();
         eliminar = cb.getSelectedIndex();
 
     }//GEN-LAST:event_jComboBox1ActionPerformed
